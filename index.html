@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>チカチカするサイト</title>
+    <style>
+      #light {
+        width: 50vw;
+        height: 50vh;
+        margin: 25vh 25vw;
+        border: solid 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="light"></div>
+    <script>
+      const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      var light = document.getElementById("light");
+      light.style.backgroundColor = "aqua";
+      async function change(t) {
+        while (true) {
+          await _sleep(t);
+          if (light.style.backgroundColor == "aqua") {
+            light.style.backgroundColor = "white";
+          } else {
+            light.style.backgroundColor = "aqua";
+          }
+          t = t/2
+        }
+      }
+
+      change(3000)
+    </script>
+  </body>
+</html>
